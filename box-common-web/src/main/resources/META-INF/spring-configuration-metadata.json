@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+      "name": "box.web",
+      "type": "com.box.common.web.properties.WebProperties",
+      "sourceType": "com.box.common.web.properties.WebProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "box.web.response-wrap-enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether controller responses should be wrapped as Result.",
+      "defaultValue": true
+    },
+    {
+      "name": "box.web.request-caching-enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether request and response bodies should be cached for later logging.",
+      "defaultValue": true
+    },
+    {
+      "name": "box.web.request-logging-enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether lightweight access logging interceptor is enabled.",
+      "defaultValue": true
+    },
+    {
+      "name": "box.web.trace-id-header",
+      "type": "java.lang.String",
+      "description": "Header name used for trace id propagation.",
+      "defaultValue": "X-Trace-Id"
+    },
+    {
+      "name": "box.web.max-payload-length",
+      "type": "java.lang.Integer",
+      "description": "Maximum length of cached payload content used by web helpers.",
+      "defaultValue": 2048
+    }
+  ]
+}
