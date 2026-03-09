@@ -21,6 +21,10 @@ public final class DateUtils {
         return LocalDateTime.now();
     }
 
+    public static Date getNowDate() {
+        return toDate(now());
+    }
+
     public static String format(LocalDate date) {
         return date == null ? null : DATE_FORMATTER.format(date);
     }

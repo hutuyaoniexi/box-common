@@ -1,4 +1,4 @@
-package com.box.common.web.support;
+package com.box.common.web.util;
 
 /**
  * User-Agent 解析工具。

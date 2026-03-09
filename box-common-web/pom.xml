@@ -14,7 +14,13 @@
     <dependencies>
         <dependency>
             <groupId>com.box</groupId>
-            <artifactId>box-common-core</artifactId>
+            <artifactId>box-common-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.box</groupId>
+            <artifactId>box-common-datasource</artifactId>
             <version>${project.version}</version>
         </dependency>
 

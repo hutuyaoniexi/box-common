@@ -1,0 +1,115 @@
+{
+  "groups": [
+    {
+      "name": "box.security",
+      "type": "com.box.common.security.properties.SecurityProperties",
+      "sourceType": "com.box.common.security.properties.SecurityProperties"
+    },
+    {
+      "name": "box.security.claims",
+      "type": "com.box.common.security.properties.SecurityProperties$Claims",
+      "sourceType": "com.box.common.security.properties.SecurityProperties",
+      "sourceMethod": "getClaims()"
+    },
+    {
+      "name": "box.security.jwt",
+      "type": "com.box.common.security.properties.SecurityProperties$Jwt",
+      "sourceType": "com.box.common.security.properties.SecurityProperties",
+      "sourceMethod": "getJwt()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "box.security.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether API-oriented authentication is enabled. When false, all requests are permitted and the default Spring Security login page remains disabled.",
+      "defaultValue": true
+    },
+    {
+      "name": "box.security.authenticate-all-paths",
+      "type": "java.lang.Boolean",
+      "description": "Whether all non-excluded paths require authentication.",
+      "defaultValue": true
+    },
+    {
+      "name": "box.security.permit-paths",
+      "type": "java.util.List<java.lang.String>",
+      "description": "Paths that are always allowed without authentication."
+    },
+    {
+      "name": "box.security.token-header",
+      "type": "java.lang.String",
+      "description": "Header name used to carry the JWT token.",
+      "defaultValue": "Authorization"
+    },
+    {
+      "name": "box.security.token-prefix",
+      "type": "java.lang.String",
+      "description": "Token prefix stripped before parsing the JWT.",
+      "defaultValue": "Bearer "
+    },
+    {
+      "name": "box.security.claims.user-id",
+      "type": "java.lang.String",
+      "description": "Claim key used for the user id.",
+      "defaultValue": "userId"
+    },
+    {
+      "name": "box.security.claims.user-name",
+      "type": "java.lang.String",
+      "description": "Claim key used for the user name.",
+      "defaultValue": "userName"
+    },
+    {
+      "name": "box.security.claims.tenant-id",
+      "type": "java.lang.String",
+      "description": "Claim key used for the tenant id.",
+      "defaultValue": "tenantId"
+    },
+    {
+      "name": "box.security.claims.permissions",
+      "type": "java.lang.String",
+      "description": "Claim key used for permissions.",
+      "defaultValue": "permissions"
+    },
+    {
+      "name": "box.security.jwt.secret",
+      "type": "java.lang.String",
+      "description": "Shared secret used to verify HS256 JWT signatures."
+    },
+    {
+      "name": "box.security.jwt.issuer",
+      "type": "java.lang.String",
+      "description": "Expected JWT issuer. Leave empty to skip issuer validation."
+    },
+    {
+      "name": "box.security.jwt.audience",
+      "type": "java.util.List<java.lang.String>",
+      "description": "Expected JWT audience values."
+    },
+    {
+      "name": "box.security.jwt.access-ttl-seconds",
+      "type": "java.lang.Long",
+      "description": "Access token lifetime in seconds.",
+      "defaultValue": 1800
+    },
+    {
+      "name": "box.security.jwt.refresh-enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether refresh token support is enabled.",
+      "defaultValue": true
+    },
+    {
+      "name": "box.security.jwt.refresh-ttl-seconds",
+      "type": "java.lang.Long",
+      "description": "Refresh token lifetime in seconds.",
+      "defaultValue": 604800
+    },
+    {
+      "name": "box.security.jwt.clock-skew-seconds",
+      "type": "java.lang.Long",
+      "description": "Allowed clock skew in seconds when validating exp and nbf claims.",
+      "defaultValue": 30
+    }
+  ]
+}

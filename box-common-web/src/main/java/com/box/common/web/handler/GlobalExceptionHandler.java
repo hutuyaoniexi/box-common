@@ -1,6 +1,7 @@
-package com.box.common.core.exception;
+package com.box.common.web.handler;
 
 import com.box.common.core.enums.ErrorCode;
+import com.box.common.core.exception.BaseException;
 import com.box.common.core.response.Result;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
@@ -22,9 +23,6 @@ public final class GlobalExceptionHandler {
     }
 
     public static Result<Void> toResult(Throwable throwable) {
-        if (throwable instanceof BizException bizException) {
-            return Result.fail(bizException.getCode(), bizException.getMessage());
-        }
         if (throwable instanceof BaseException baseException) {
             return Result.fail(baseException.getCode(), baseException.getMessage());
         }

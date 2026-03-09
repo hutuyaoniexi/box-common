@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public Result<Void> handle(Exception exception, HttpServletRequest request) {
-        Result<Void> result = com.box.common.core.exception.GlobalExceptionHandler.toResult(exception);
+        Result<Void> result = com.box.common.web.handler.GlobalExceptionHandler.toResult(exception);
         if (result.getCode() >= 9000) {
             log.error("Unhandled exception, uri={}", request.getRequestURI(), exception);
         } else {

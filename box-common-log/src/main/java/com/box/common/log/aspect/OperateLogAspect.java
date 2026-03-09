@@ -2,7 +2,6 @@ package com.box.common.log.aspect;
 
 import com.box.common.core.constant.HeaderConstants;
 import com.box.common.core.util.DateUtils;
-import com.box.common.core.util.IpUtils;
 import com.box.common.core.util.JsonUtils;
 import com.box.common.log.annotation.OperateLog;
 import com.box.common.log.context.LogContext;
@@ -74,7 +73,7 @@ public class OperateLogAspect {
         record.setOperatorId(resolveOperatorId(operateLog, method, joinPoint, result, error));
         record.setOperatorName(resolveOperatorName(operateLog, method, joinPoint, result, error));
         record.setRequestUri(request == null ? null : request.getRequestURI());
-        record.setClientIp(IpUtils.getClientIp(request));
+        //record.setClientIp(IpUtils.getClientIp(request));
         record.setSuccess(resolveSuccess(operateLog, method, joinPoint, result, error));
         record.setDurationMs(durationMs);
         record.setRequestData(operateLog.logArgs() ? truncateJson(joinPoint.getArgs()) : null);

@@ -1,7 +1,9 @@
-package com.box.common.web.support;
+package com.box.common.web.util;
 
-import com.box.common.core.util.IpUtils;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 
@@ -13,9 +15,9 @@ import java.util.Map;
 /**
  * Servlet 请求工具。
  */
-public final class ServletRequestUtils {
+public final class ServletUtils {
 
-    private ServletRequestUtils() {
+    private ServletUtils() {
     }
 
     public static String getClientIp(HttpServletRequest request) {
@@ -51,5 +53,34 @@ public final class ServletRequestUtils {
         }
         String value = new String(content, StandardCharsets.UTF_8);
         return value.length() <= maxLength ? value : value.substring(0, maxLength) + "...";
+    }
+
+
+    /**
+     * 获取request
+     */
+    public static HttpServletRequest getRequest()
+    {
+        try
+        {
+            return getRequestAttributes().getRequest();
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+    public static ServletRequestAttributes getRequestAttributes()
+    {
+        try
+        {
+            RequestAttributes attributes = RequestContextHolder.getRequestAttributes();
+            return (ServletRequestAttributes) attributes;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 }

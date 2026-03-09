@@ -14,6 +14,11 @@ public enum ErrorCode {
     NOT_FOUND(2002, "资源不存在"),
     STATUS_NOT_ALLOWED(2003, "当前状态不允许此操作"),
 
+
+    CODE_FORBIDDEN(40301,"权限不足"),
+
+
+
     INTERNAL_ERROR(9000, "系统繁忙，请稍后再试");
 
     private final int code;

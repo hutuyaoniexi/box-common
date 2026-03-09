@@ -2,7 +2,6 @@ package com.box.common.log.aspect;
 
 import com.box.common.core.constant.HeaderConstants;
 import com.box.common.core.util.DateUtils;
-import com.box.common.core.util.IpUtils;
 import com.box.common.core.util.JsonUtils;
 import com.box.common.log.model.RequestLogRecord;
 import com.box.common.log.properties.LogProperties;
@@ -61,7 +60,7 @@ public class RequestLogAspect {
         record.setMethod(request.getMethod());
         record.setRequestUri(request.getRequestURI());
         record.setQueryString(request.getQueryString());
-        record.setClientIp(IpUtils.getClientIp(request));
+       // record.setClientIp(IpUtils.getClientIp(request));
         record.setUserAgent(request.getHeader(HeaderConstants.USER_AGENT));
         record.setStatus(response == null ? 200 : response.getStatus());
         record.setDurationMs(durationMs);

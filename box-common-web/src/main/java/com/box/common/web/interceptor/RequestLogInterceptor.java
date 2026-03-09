@@ -3,7 +3,7 @@ package com.box.common.web.interceptor;
 import com.box.common.web.context.RequestContextHolder;
 import com.box.common.web.context.TraceContext;
 import com.box.common.web.properties.WebProperties;
-import com.box.common.web.support.ServletRequestUtils;
+import com.box.common.web.util.ServletUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -31,7 +31,7 @@ public class RequestLogInterceptor implements HandlerInterceptor {
         RequestContextHolder.set(new RequestContextHolder.RequestContext(
                 TraceContext.getTraceId(),
                 request.getRequestURI(),
-                ServletRequestUtils.getClientIp(request),
+                ServletUtils.getClientIp(request),
                 System.currentTimeMillis()
         ));
         return true;
