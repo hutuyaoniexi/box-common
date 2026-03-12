@@ -251,7 +251,7 @@ public class SecurityProperties {
          * Access Token 有效期（秒）。
          */
         @Min(1)
-        private long accessTtlSeconds = 1800;
+        private long accessTtlSeconds = 60 * 30 ;
 
         /**
          * 是否启用 Refresh Token。
@@ -262,7 +262,7 @@ public class SecurityProperties {
          * Refresh Token 有效期（秒）。
          */
         @Min(1)
-        private long refreshTtlSeconds = 604800;
+        private long refreshTtlSeconds = 60 * 60 * 12;
 
         /**
          * 时钟偏移容忍（秒）。
